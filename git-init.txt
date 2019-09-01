@@ -1,0 +1,13 @@
+git:
+mkdir ~/manjaro
+cd manjaro
+git init
+git config --global user.name qiuchengan
+git config --global user.email qiuchengan@126.com
+git config --global credential.helper store
+
+git remote add origin https://github.com/qiuchengan/manjaro
+touch 0901.txt
+git add 0901.txt
+git commit -m test
+git push origin master

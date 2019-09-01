@@ -1,0 +1,51 @@
+manjaro:
+sudo pacman-mirrors -c China
+sudo pacman -Syyu
+sudo pacman -S yay
+yay -S i3
+yay -S  fish alacritty ranger compton xorg  feh   demenu  vim  unrar net-tools code    rdesktop
+#other: lxappearance variety polybar
+lxappearance #选择theme
+variety 在i3下不能用>在xfce下保存后用feh --bg-scale /path
+#yay -S simplescreenrecorder screenkey
+#yay -S variety #在i3下下载wallpager慢
+
+vim .config/fish/config.fish
+alias vi="vim"
+chsh -s /usr/bin/fish
+
+vi .profile #nano
+
+vi ~/.xmodmap
+clear lock
+clear mod1
+clear control
+keycode 66 = Escape NoSymbol Escape
+keycode 64 = Contrlol_L NoSymbol Contrlol_L
+keycode 37 = Alt_L Meta_L Alt_L Meta_L
+add control = Contrlol_L
+add mod1 = Alt_L
+
+yay -S fcitx fcitx-im fcitx-configtool #fcitx-googlepinyin
+vi ~/.xprofile
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
+#在i3中要加到config并用ctrl+space 激活input
+
+rdesktop -g1366x760 ip #就可以退出全屏后按出ctrl-c关闭rdp了
+
+vi ~/.config/i3/config
+bindsym $mod+Return 改成alacritty 
+exec_always fcitx
+exec_always sleep 3;xmod ~/.xmodmap
+#移动焦点改为$mod+hjkl
+#resize下面:
+new_window lpixel
+super+shift+c 刷新
+
+vim ~/.config/alacritty/alacritty.yml
+background_opacity:0.8
+
+i3-cheat:
+https://gist.github.com/miguelmota/e51b9a3c3a42202f058215ebb1d0ca72
